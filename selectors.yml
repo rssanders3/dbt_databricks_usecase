@@ -1,0 +1,39 @@
+selectors:
+  - name: falcon_transactions_jobflow
+    description: "A selector for processing Transactions for Falcon"
+    definition:
+      union:
+        - method: fqn
+          value: falcon_transactions_conformed
+        - method: fqn
+          value: fin_transactions
+        - method: fqn
+          value: fin_transactions_denorm
+        - method: fqn
+          value: financial_summary
+
+  - name: ghost_transactions_jobflow
+    description: "A selector for processing Transactions for Ghost"
+    definition:
+      union:
+        - method: fqn
+          value: ghost_transactions_conformed
+        - method: fqn
+          value: fin_transactions
+        - method: fqn
+          value: fin_transactions_denorm
+        - method: fqn
+          value: financial_summary
+
+  - name: hummingbird_transactions_jobflow
+    description: "A selector for processing Transactions for Hummingbird"
+    definition:
+      union:
+        - method: fqn
+          value: hummingbird_transactions_conformed
+        - method: fqn
+          value: fin_transactions
+        - method: fqn
+          value: fin_transactions_denorm
+        - method: fqn
+          value: financial_summary

@@ -169,3 +169,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+#Mac OS specific
+.DS_Store
+
+# DBT Specific files/folder to ignore
+logs/
+logs/*
+.user.yml
+dbt_packages/

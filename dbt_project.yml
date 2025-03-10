@@ -1,0 +1,55 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'dbt_databricks_usecase'
+version: '1.0.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'dbt_databricks_usecase'
+
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+vars:
+  job_flow_name: "{{ invocation_args_dict.get('selector') }}"
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+models:
+  dbt_databricks_usecase:
+    1_bronze:
+      schema: bronze
+      transient: true
+      +materialized: view
+      +pre-hook:
+        - "USE {{ target.schema }}"
+    2_silver:
+      schema: silver
+      +pre-hook:
+        - "USE {{ target.schema }}"
+    3_gold:
+      schema: gold
+      +pre-hook:
+        - "USE {{ target.schema }}"
+
+seeds:
+  dbt_databricks_usecase:
+    1_bronze:
+      schema: bronze
+    2_silver:
+      schema: silver
+    3_gold:
+      schema: gold

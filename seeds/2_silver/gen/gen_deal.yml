@@ -1,0 +1,21 @@
+version: 2
+
+seeds:
+  - name: gen_deal
+    description: "General deal information"
+    config:
+      full_refresh: true
+      column_types: 
+        deal_code: varchar(256)
+        currency: char(3)
+        product: varchar(256)
+    columns:
+      - name: deal_code
+        description: "Code for the deal"
+        data_type: string
+      - name: currency
+        description: "Currency associated with the deal"
+        data_type: char(3)
+      - name: product
+        description: "Product associated with the deal"
+        data_type: string

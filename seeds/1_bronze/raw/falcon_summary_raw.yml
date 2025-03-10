@@ -1,0 +1,25 @@
+version: 2
+
+seeds:
+  - name: falcon_summary_raw
+    description: "Raw summary data for the FALCON deal"
+    config:
+      full_refresh: true
+      column_types: 
+        year: integer
+        month: integer
+        agg_amount: decimal(12,2)
+        data_dt: date
+    columns:
+      - name: year
+        description: "Year of the transaction"
+        data_type: integer
+      - name: month
+        description: "Month of the transaction"
+        data_type: integer
+      - name: agg_amount
+        description: "Aggregated amount of the transaction"
+        data_type: decimal(12,2)
+      - name: data_dt
+        description: "Date of the data"
+        data_type: date

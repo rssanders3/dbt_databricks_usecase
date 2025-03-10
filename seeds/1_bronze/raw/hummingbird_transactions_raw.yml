@@ -1,0 +1,21 @@
+version: 2
+
+seeds:
+  - name: hummingbird_transactions_raw
+    description: "Raw transaction data for the HUMMINGBIRD deal"
+    config:
+      full_refresh: true
+      column_types: 
+        date: date
+        amount: integer
+        yearmo: varchar(256)
+    columns:
+      - name: date
+        description: "Date of the transaction"
+        data_type: date
+      - name: amount
+        description: "Amount of the transaction"
+        data_type: integer
+      - name: yearmo
+        description: "Year and month of the transaction in YYYYMM format"
+        data_type: string

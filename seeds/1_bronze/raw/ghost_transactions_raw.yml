@@ -1,0 +1,27 @@
+seeds:
+  - name: ghost_transactions_raw
+    description: "A seed for processing Transactions for Ghost"
+    config:
+      full_refresh: true
+      column_types: 
+        transaction_id: varchar(256)
+        transaction_date: date
+        transaction_type: char(1)
+        amount: decimal(12,2)
+        data_date: date
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for the transaction"
+        data_type: string
+      - name: transaction_date
+        description: "Date of the transaction"
+        data_type: date
+      - name: transaction_type
+        description: "Type of the transaction, 'C' for credit and 'D' for debit"
+        ddata_type: char(1)
+      - name: amount
+        description: "Amount of the transaction"
+        data_type: decimal(12,2)
+      - name: data_date
+        description: "Date of the data"
+        data_type: date

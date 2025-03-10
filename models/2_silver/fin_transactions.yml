@@ -1,0 +1,47 @@
+version: 2
+
+models:
+
+  - name: fin_transactions
+    description: "Financial transactions from various sources"
+    config:
+      on_schema_change: 'append_new_columns'
+      contract:
+        enforced: true
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for the transaction"
+        data_type: string
+      - name: transaction_date
+        description: "Date of the transaction"
+        data_type: date
+      - name: transaction_type
+        description: "Type of the transaction, 'C' for credit and 'D' for debit"
+        data_type: char(1)
+      - name: amount
+        description: "Amount of the transaction"
+        data_type: decimal(12,2)
+      - name: deal_code
+        description: "Code for the deal"
+        data_type: string
+      - name: source_schema
+        description: "Schema of the source table"
+        data_type: string
+      - name: source_database
+        description: "Database of the source table"
+        data_type: string
+      - name: source_table
+        description: "Identifier of the source table"
+        data_type: string
+      - name: job_run_id
+        description: "Identifier for the job run"
+        data_type: string
+      - name: job_flow_name
+        description: "Identifier for the job flow that loaded the data"
+        data_type: string
+      - name: data_expiration_date
+        description: "Expiration date of the data"
+        data_type: date
+      - name: data_date
+        description: "Date of the data"
+        data_type: date
